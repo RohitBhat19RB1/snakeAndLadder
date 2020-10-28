@@ -1,4 +1,4 @@
-import java.util.Random;
+ import java.util.Random;
  public class SnakeNLadderTest 
 {
 	public static void main(String[] args) 
