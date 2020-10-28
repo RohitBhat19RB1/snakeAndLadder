@@ -6,14 +6,31 @@ public class SnakeNLadderTest
 				s.calculatePlayerValue(int player, int diceValue)
    		System.out.println("Game has started with single player at start position 0");
 		SnakeNLadder s = new SnakeNLadder();
-		int diceValue = s.rollDice();
-		System.out.println("Player has rolled the dice and the value he got is " + diceValue );
+		s.startGame();
 
 	}
 }
 class SnakeNLadder
 {
+	final static int WINPOINT = 100;
 
+	public void startGame() {
+		int player1 = 0, count1 = 0;
+		int diceValue = 0;
+		Scanner s = new Scanner(System.in);
+		while (player1 <= WINPOINT) {
+			diceValue = rollDice();
+				count1++;
+				player1 = calculatePlayerValue(player1, diceValue);
+				System.out.println("Player position 1: " + player1);
+				if (player1 == 100) {
+					System.out.println("Player1 Won");
+					System.out.println("Die rolled " + count1 + " times to win");
+					break;
+				}
+			}
+
+		}
 
 		int rollDice()
 		{
@@ -24,10 +41,10 @@ class SnakeNLadder
                 }
 
 		 int calculatePlayerValue(int player, int diceValue)
-	{
-		int x = 0;
-		Random r = new Random();
-		x = r.nextInt(3);
+         	{
+	        	int x = 0;
+		        Random r = new Random();
+		        x = r.nextInt(3);
 		switch (x)
 		{
 		case 0:
@@ -46,6 +63,9 @@ class SnakeNLadder
 			player = player - diceValue;
 			break;
 		}
-
+		if (player < 0) {
+			player = 0;
+		}
+		return player;
 	}
 }
