@@ -65,6 +65,8 @@ class SnakeNLadder
 		}
 		if (player < 0) {
 			player = 0;
+		}else if (player > 100) {
+			player = player - diceValue;;
 		}
 		return player;
 	}
