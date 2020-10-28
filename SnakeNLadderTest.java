@@ -1,5 +1,5 @@
 import java.util.Random;
-public class SnakeNLadderTest 
+ public class SnakeNLadderTest 
 {
 	public static void main(String[] args) 
 	{
